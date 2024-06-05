@@ -52,7 +52,7 @@ const login = async (req,res) => {
     if(!isPasswordValid) {
         return res.status(400).json({Error: 'Invalid Credentials.'})
     }
-    const token = jwt.sign({name: Employee.name, email: Employee.email,role:Employee.role}, process.env.Secret)
+    const token = jwt.sign({id:Employee.id ,name: Employee.name, email: Employee.email,role:Employee.role}, process.env.Secret)
     res.status(200).json({message:"logged in Successfully", token})
 
 }
